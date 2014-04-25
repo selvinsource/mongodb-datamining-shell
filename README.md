@@ -12,7 +12,13 @@ mongo mongodbdm --eval "var inputCollectionName = \"weatherData\", target = \"pl
 ```
 
 ##Documentation
+
+Data mining or also called knowledge discovery is a set of activities aiming at analyzing large databases and extracting extra information meaningful for decision making or problem solving.
+
 ###Classification
+
+Classification is one of the most common knowledge discovery task that consists in creating a model that predicts a target class based on categorical variables.
+
 ####OneR
 The oner.js classification algorithm takes as input two parameters:
 * inputCollectionName - the collection used as training dataset
@@ -24,7 +30,7 @@ mongo yourdatabase --eval "var inputCollectionName = \"yourcollection\", target 
 ```
 
 Reference:
-* [Holte, R. C. (1993)] 'Very simple classification rules perform well on most commonly used datasets', Machine Learning, 11, pp 63-91
+* [Holte, R. C. (1993)] Very simple classification rules perform well on most commonly used datasets, Machine Learning, 11, pp 63-91
 * [OneR pseudocode] - visual description of the algorithm
 
 
