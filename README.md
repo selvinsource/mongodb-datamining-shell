@@ -38,6 +38,6 @@ mongo yourdatabase --eval "var inputCollectionName = \"yourcollection\", target 
 
 [Holte, R. C. (1993)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
 [OneR pseudocode]:http://www.saedsayad.com/oner.htm
-[Selvaggio, V. (2011)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
+[Selvaggio, V. (2011)]:https://github.com/selvinsource/customer-churn-prediction/blob/master/projectreport.pdf?raw=true
 
 
