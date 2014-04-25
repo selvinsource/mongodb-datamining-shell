@@ -20,7 +20,9 @@ Data mining or also called knowledge discovery is a set of activities aiming at 
 Classification is one of the most common knowledge discovery task that consists in creating a model that predicts a target class based on categorical variables.
 
 ####OneR
-The oner.js classification algorithm takes as input two parameters:
+OneR is a simple classification algorithm that produces a one level decision tree.  
+For a visual description of the algorithm see [OneR pseudocode].  
+Its oner.js MongoDB implementation takes as input two parameters:
 * inputCollectionName - the collection used as training dataset
 * target - the target attribute of the collection
 
@@ -29,12 +31,13 @@ Usage:
 mongo yourdatabase --eval "var inputCollectionName = \"yourcollection\", target = \"yourtargetclass\"" datamining/classification/oner.js
 ```
 
-Reference:
+###References
 * [Holte, R. C. (1993)] Very simple classification rules perform well on most commonly used datasets, Machine Learning, 11, pp 63-91
-* [OneR pseudocode] - visual description of the algorithm
+* [Selvaggio, V. (2011)] Customer Churn prediction for an Automotive Dealership using computational Data Mining, MSc thesis, City University London
 
 
 [Holte, R. C. (1993)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
 [OneR pseudocode]:http://www.saedsayad.com/oner.htm
+[Selvaggio, V. (2011)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
 
 
