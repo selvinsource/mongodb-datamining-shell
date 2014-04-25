@@ -31,6 +31,8 @@ Usage:
 mongo yourdatabase --eval "var inputCollectionName = \"yourcollection\", target = \"yourtargetclass\"" datamining/classification/oner.js
 ```
 
+Example of a collection and its target class play: [weather data].
+
 ###References
 * [Holte, R. C. (1993)] Very simple classification rules perform well on most commonly used datasets, Machine Learning, 11, pp 63-91
 * [Selvaggio, V. (2011)] Customer Churn prediction for an Automotive Dealership using computational Data Mining, MSc thesis, City University London
@@ -39,5 +41,5 @@ mongo yourdatabase --eval "var inputCollectionName = \"yourcollection\", target 
 [Holte, R. C. (1993)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
 [OneR pseudocode]:http://www.saedsayad.com/oner.htm
 [Selvaggio, V. (2011)]:https://github.com/selvinsource/customer-churn-prediction/blob/master/projectreport.pdf?raw=true
-
+[weather data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/weatherData.csv
 
