@@ -35,7 +35,7 @@ Example of a collection and its target class play: [weather data].
 
 ###References
 * [Holte, R. C. (1993)] Very simple classification rules perform well on most commonly used datasets, Machine Learning, 11, pp 63-91
-* [Selvaggio, V. (2011)] Customer Churn prediction for an Automotive Dealership using computational Data Mining, MSc thesis, City University London
+* [Selvaggio, V. (2011)] Customer Churn prediction for an Automotive Dealership using computational Data Mining, MSc dissertation, City University London
 
 
 [Holte, R. C. (1993)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
