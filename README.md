@@ -19,4 +19,16 @@ The oner.js classification algorithm takes as input two parameters:
 * target - the target attribute of the collection
 
 Usage:
+```sh
 mongo yourdatabase --eval "var inputCollectionName = \"yourcollection\", target = \"yourtargetclass\"" datamining/classification/oner.js
+```
+
+Reference:
+* [Holte, R. C. (1993)] 'Very simple classification rules perform well on most commonly used datasets', Machine Learning, 11, pp 63-91
+* [OneR pseudocode] - visual description of the algorithm
+
+
+[Holte, R. C. (1993)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
+[OneR pseudocode]:http://www.saedsayad.com/oner.htm
+
+
