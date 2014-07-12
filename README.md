@@ -45,7 +45,7 @@ Clustering is the task of identifying and segmenting the instances into a finite
 
 ####K-Means
 
-K-Means is the classic clustering technique that partitions the instances into k clusters whereas k is predefined.
+K-Means is the classic clustering technique that partitions the instances into k clusters whereas k is predefined.  
 For an high level description of the algorithm see [K-Means pseudocode].  
 Its kmeans.js MongoDB implementation takes as input two parameters:
 * inputCollectionName - the collection used as training dataset
