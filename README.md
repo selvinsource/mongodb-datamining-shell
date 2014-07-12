@@ -9,7 +9,7 @@ git clone https://github.com/selvinsource/mongodb-datamining-shell.git
 cd mongodb-datamining-shell
 mongoimport --db mongodbdm --collection weatherData --type csv --headerline --file dataset/weatherData.csv
 mongo mongodbdm --eval "var inputCollectionName = \"weatherData\", target = \"play\"" datamining/classification/oner.js
-mongoimport --db mongodbdm --collection iris --type csv --headerline --file dataset/iris.cvs
+mongoimport --db mongodbdm --collection iris --type csv --headerline --file dataset/iris.csv
 mongo mongodbdm --eval "var inputCollectionName = \"iris\", k = 3" datamining/clustering/kmeans.js
 ```
 
@@ -71,8 +71,7 @@ Note:
 
 [Holte, R. C. (1993)]:http://webdocs.cs.ualberta.ca/~holte/Publications/simple_rules.pdf
 [OneR pseudocode]:http://www.saedsayad.com/oner.htm
-[KMeans pseudocode]:http://www.saedsayad.com/clustering_kmeans.htm
+[K-Means pseudocode]:http://www.saedsayad.com/clustering_kmeans.htm
 [Selvaggio, V. (2011)]:https://github.com/selvinsource/customer-churn-prediction/blob/master/projectreport.pdf?raw=true
 [weather data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/weatherData.csv
 [iris data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/iris.csv
-
