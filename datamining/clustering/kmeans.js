@@ -43,14 +43,17 @@ function KMeans(inputCollectionName,k){
  	//KMeans clustering map reduce functions section
  	//Map each document against each centroid by computing the Euclidean distance between them
 	var kMeansMap = function(){
-        var id = this['_id'];
-        var a = this.a;
-        var b = this.b;
-        centroids.forEach( function(c) {
-                var key = id;//document id
-                //TODO: loop and sum all variables except id and _id on both side...
-                //if categorical use == 0 or 1
-                var value = { a : a, b : b, cluster : c.id, dist : Math.sqrt(Math.pow(c.a - a,2) + Math.pow(c.b - b,2))};
+        var document = this;
+        centroids.forEach( function(centroid) {
+                var key = document['_id'];//document id
+                var value = {cluster : centroid.id, dist : 0, class : document['class']};
+   				for(var cProp in centroid) {
+      				if(cProp != 'id') {
+ 						value[cProp] = document[cProp];
+ 							value.dist += Math.pow(centroid[cProp] - document[cProp],2);
+      				}
+   				}
+   				value.dist = Math.sqrt(value.dist);
                 emit(key,value);
         });
 	}
@@ -68,10 +71,20 @@ function KMeans(inputCollectionName,k){
 	//Select the first k documents from the input collection as random centroids
 	var newCentroids = [];
 	var i = 0;
+	var group = { _id : "$value.cluster" };
 	db[inputCollectionName].find().limit(k).forEach( function(centroid) {
         newCentroids[i] = centroid;
         newCentroids[i]['id']= 'c'+i;//centroid identifier
 		delete newCentroids[i]['_id'];//remove mongodb identifier
+		delete newCentroids[i]['class'];//remove target class if any
+		//Create the group by clause used to compute the new centroids after the first run of the algorithm
+		if(i == 0){
+   			for(var cProp in centroid) {
+      			if(cProp != 'id' && cProp != 'class') {
+      				group[cProp] = { $avg : "$value."+cProp};
+      			}
+   			}			
+		}
         i++;
 	});
 
@@ -86,9 +99,10 @@ function KMeans(inputCollectionName,k){
         	out : { replace : tmpOutCollectionName},
         	scope : { centroids : currentCentroids}
 		});
-		var newCentroids = [];
+		//Compute the new centroids as average of the document in each cluster
+		newCentroids = [];
 		var i = 0;
-		db[tmpOutCollectionName].aggregate([ { $group : { _id : "$value.cluster", a : { $avg : "$value.a"}, b : { $avg : "$value.b"}}} ]).forEach( function(c) {
+		db[tmpOutCollectionName].aggregate([ { $group : group} ]).forEach( function(c) {
        	 	newCentroids[i] = c;
        	 	newCentroids[i]['id']= c['_id'];
         	delete newCentroids[i]['_id'];
@@ -98,8 +112,22 @@ function KMeans(inputCollectionName,k){
 	
 	//Print the final result
 	print("=======KMeans clustering result for k = " + k + "=======");
+	print("Centroids");
+    for (var i = 0; i < newCentroids.length; i++) {
+    	var displayCentroid = newCentroids[i]['id']+": ";
+		for(var cProp in newCentroids[i]) {
+			if(cProp != 'id')
+				displayCentroid += cProp + " " + newCentroids[i][cProp] + " ";
+		}
+		print(displayCentroid);
+	}
+	print("Clusters");
 	db[tmpOutCollectionName].find().forEach( function(d) {
-		print("document: " + d._id + " assigned to cluster " + d.value.cluster);
+		var doc = "document: " + d._id + " ";
+		if(d.value['class'])
+			doc+= "with class "+d.value['class'] + " ";
+		doc += "assigned to cluster " + d.value.cluster;
+		print(doc);
 	});
 	print("======= Done =======");
 	
