@@ -13,7 +13,7 @@ mongoimport --db mongodbdm --collection iris --type csv --headerline --file data
 mongo mongodbdm --eval "var inputCollectionName = \"iris\", k = 3" datamining/clustering/kmeans.js
 ```
 
-Compare resutls to [Weka]
+Follow [this tutorial] to compare the resutls to the Weka Data Mining Software.
 
 ##Documentation
 
@@ -80,4 +80,4 @@ Note:
 [weather data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/weatherData.csv
 [iris data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/iris.csv
 [UCI Machine Learning Repository]:http://archive.ics.uci.edu/ml
-[Weka]: https://github.com/selvinsource/mongodb-datamining-shell/wiki/Weka-MongoDB
+[this tutorial]: https://github.com/selvinsource/mongodb-datamining-shell/wiki/Weka-MongoDB
