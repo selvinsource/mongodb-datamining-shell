@@ -80,4 +80,4 @@ Note:
 [weather data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/weatherData.csv
 [iris data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/iris.csv
 [UCI Machine Learning Repository]:http://archive.ics.uci.edu/ml
-[Weka]: wiki/Weka-MongoDB
+[Weka]: https://github.com/selvinsource/mongodb-datamining-shell/wiki/Weka-MongoDB
