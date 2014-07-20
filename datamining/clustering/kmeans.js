@@ -121,6 +121,7 @@ function KMeans(inputCollectionName,k){
 		}
 		print(displayCentroid);
 	}
+	/* Uncomment this to which cluster each document has been assigned
 	print("Clusters");
 	db[tmpOutCollectionName].find().forEach( function(d) {
 		var doc = "document: " + d._id + " ";
@@ -128,6 +129,12 @@ function KMeans(inputCollectionName,k){
 			doc+= "with class "+d.value['class'] + " ";
 		doc += "assigned to cluster " + d.value.cluster;
 		print(doc);
+	});
+	*/
+	print("Clustered documents");
+	var numDoc =  db[inputCollectionName].count();
+	db[tmpOutCollectionName].aggregate([ { $group : { _id : "$value.cluster", count : { $sum : 1}, perc : { $sum : 1/numDoc}}} ]).forEach( function(result) {
+		print(result._id + ": " + result.count + " (" + result.perc*100 + "%)");
 	});
 	print("======= Done =======");
 	
