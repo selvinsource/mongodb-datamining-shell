@@ -13,6 +13,8 @@ mongoimport --db mongodbdm --collection iris --type csv --headerline --file data
 mongo mongodbdm --eval "var inputCollectionName = \"iris\", k = 3" datamining/clustering/kmeans.js
 ```
 
+Compare resutls to [Weka]
+
 ##Documentation
 
 Data mining or also called knowledge discovery is a set of activities aiming at analyzing large databases and extracting extra information meaningful for decision making or problem solving.
@@ -78,3 +80,4 @@ Note:
 [weather data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/weatherData.csv
 [iris data]:https://github.com/selvinsource/mongodb-datamining-shell/blob/master/dataset/iris.csv
 [UCI Machine Learning Repository]:http://archive.ics.uci.edu/ml
+[Weka]: https://github.com/selvinsource/mongodb-datamining-shell/wiki/Weka-MongoDB
