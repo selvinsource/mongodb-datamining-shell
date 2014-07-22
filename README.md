@@ -13,7 +13,7 @@ mongoimport --db mongodbdm --collection iris --type csv --headerline --file data
 mongo mongodbdm --eval "var inputCollectionName = \"iris\", k = 3" datamining/clustering/kmeans.js
 ```
 
-Follow [this tutorial] to compare the resutls to the Weka Data Mining Software.
+Follow [this tutorial] to compare the results to the Weka Data Mining Software.
 
 ##Documentation
 
